@@ -1,0 +1,135 @@
+/* pages/songDetail/songDetail.wxss */
+.songDetailContainer{
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    height: 100%;
+}
+
+
+/*底座*/
+.circle{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 100;
+    position: relative;
+    margin: 10rpx 0;
+}
+/*摇杆*/
+.needle{
+    position: relative;
+    left: 60rpx;
+    top: -40rpx;
+    width: 192rpx;
+    height: 274rpx;
+    z-index: 99;
+    transform-origin: 40rpx 0;/*改变旋转的中心点*/
+    transform: rotate(-20deg);
+    transition: transform 1s;
+}
+.needleRotate{
+    transform: rotate(0deg);
+}
+/*磁盘*/
+.discContainer{
+    position: relative;
+    left: 0;
+    top: -170rpx;
+    width: 598rpx;
+    height: 598rpx;
+}
+
+.discAnimation{
+    animation: disc 5s linear infinite;
+    animation-delay: 1s;
+}
+/**
+    @keyframes: 设置动画帧
+      1）from to
+        - 适用于简单的动画， 只有起始帧和结束帧
+        - 北京 - 上海   直达
+      2）百分百
+        - 多用于复杂的动画， 动画不止两帧
+        - 北京 - 上海 ---> 北京 -- 天津 -- 深圳 -- 上海
+        - 0% - 100%，可以任意拆分
+ */
+@keyframes disc {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.disc{
+    width: 598rpx;
+    height: 598rpx;
+}
+.musicImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    width: 370rpx;
+    height: 370rpx;
+}
+
+.musicControl{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    bottom: 40rpx;
+    left: 0;
+    right: 0;
+    border-top: 1rpx solid #fff;
+    font-size: 50rpx;
+}
+.musicControl text{
+    height: 120rpx;
+    line-height: 120rpx;
+    width: 20%;
+    text-align: center;
+}
+.musicControl .big{
+    font-size: 80rpx;
+}
+
+/*进度条控制区域*/
+.progressControl{
+    position: absolute;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    bottom: 200rpx;
+    display: flex;
+}
+.barControl{
+    position: relative;
+    height: 4rpx;
+    width: 450rpx;
+    background: rgba(0,0,0,0.4);
+    margin: auto;
+}
+.audio-current-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4rpx;
+    background: red;
+}
+.audio-circle{
+    width: 12rpx;
+    height: 12rpx;
+    position: absolute;
+    right: -12rpx;
+    top: -4rpx;
+    background: #fff;
+    border-radius: 50%;
+}
+
